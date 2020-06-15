@@ -1,0 +1,31 @@
+<sb-layout-dashboard>
+    <div>
+        <hr style="width:100%;margin-left:0">
+        <h2 style="text-align: center" >Test Avalaible</h2>
+        <hr style="width:100%;margin-left:0">
+
+
+        <div class="container">
+            <div class="row justify-content-around">
+                
+                 <div *ngFor="let test of allTest" class="card border border-info mb-5 shadow p-3  bg-white rounded " style="width:18rem ">
+                      <div class="card-body">
+                        <h5 class="card-title text-primary">{{test.testName | uppercase}}   {{test.testDuration}}Min</h5>
+                        <p class="card-text"><small class="text-muted">{{test.lastModified | date}}</small></p>
+                        <p class="card-text">{{test.testDescription}}</p>
+                          <button type="button" class="btn btn-primary mr-2" [routerLink]="['/dashboard/test/edit-test',test.testId]">Edit</button>
+                                      
+                         <button type="button" class="btn btn-outline-danger mr-2" (click)="deleteTest(test.testId)">Delete</button>
+                         <button type="button" class="btn btn-outline-secondary mt-2 mr-2">Enrolled Users</button>                    </div>
+                    
+                 </div>
+
+                        
+            </div>
+        </div>
+    
+       
+    </div>
+    
+    
+</sb-layout-dashboard>

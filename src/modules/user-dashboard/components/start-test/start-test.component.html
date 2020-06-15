@@ -1,0 +1,80 @@
+
+    
+<sb-layout-user-dashboard>
+<body>
+<div  class="preview">
+
+    <div *ngFor=" let question of allQuestions | paginate: { itemsPerPage:1, currentPage:CurrentPage*pageSize+1} ; let i=index"class="questionsBox " >
+
+     <div  class="questions">{{CurrentPage+1}}.{{question.question}}</div>
+
+     <ul class="answerList">
+        <li>
+            <label>
+            <input    type="radio" [checked]="userOptions[CurrentPage].option===1" (click)="getAnswers(CurrentPage,1,question.questionId)" name="answerGroup" value="{{CurrentPage}}" >&nbsp;{{question.optionA}}</label>
+            </li>
+            <li>
+                <label>
+                    <input   type="radio" [checked]="userOptions[CurrentPage].option===2" (click)="getAnswers(CurrentPage,2,question.questionId)" name="answerGroup" value="{{CurrentPage}}" >&nbsp;{{question.optionB}}</label>
+                </li>
+                <li>
+                    <label>
+                        <input  type="radio" [checked]="userOptions[CurrentPage].option===3"  (click)="getAnswers(CurrentPage,3,question.questionId)" name="answerGroup" value="{{CurrentPage}}" >&nbsp; {{question.optionC}}</label>
+                    </li>
+                    <li>
+                        <label>
+                            <input  type="radio" [checked]="userOptions[CurrentPage].option===4"  (click)="getAnswers(CurrentPage,4,question.questionId)" name="answerGroup" value="{{CurrentPage}}" >&nbsp; {{question.optionD}}</label>
+                        </li>
+                    </ul>
+                    <div class="questionsRow">
+                        <button [disabled]="CurrentPage >= allQuestions.length/pageSize - 1" (click)="CurrentPage=CurrentPage+1" class="subques btn btn-lg btn-secondary" >Save & Next</button>
+                        <button [disabled]="CurrentPage == 0" (click)="CurrentPage=CurrentPage-1" class="subques btn btn-lg btn-secondary" >Previous</button>
+                        <button class=" btn btn-lg btn-danger" data-toggle="modal"  data-target="#alertModal" *ngIf="allQuestions.length===CurrentPage+1" >Submit</button>
+                        <span style="float: right;">{{CurrentPage+1}} of {{allQuestions.length}}</span> 
+
+
+                    </div>
+                </div>
+
+                <!-- question pallette -->
+                <div class="container">
+                    <h4>Question Pallette</h4>
+                    <div class="row">
+                       <div class="col-12 ">
+                           <div class="question-pallete">
+                            <div  id="{{i}}"  *ngFor=" let question of allQuestions;let i=index" class="square">
+                               <a (click)="goToQuestion(i)">{{i+ 1}}</a>
+                           </div>
+
+                           <div class="info" >
+                               <span class="info-square-1"></span><span>&nbsp;Attempted</span>
+                               <span class="info-square-2"></span><span>&nbsp;Unanswered</span>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div> 
+
+           <!-- modal to alert for submission of livetest -->
+           <div class="modal fade" id="alertModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h3 *ngIf="timesUp != true">Do you want to Submit?</h3>
+                    <h3 *ngIf="timesUp === true">Times Up!! Press Submit button to submit the test.</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" ng-if="timesUp != true" class="btn btn-secondary" data-dismiss="modal">Return</button>
+                    <button type="button"  (click)="calculatePerformance()" class="testsubmit btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+
+
+
+ 

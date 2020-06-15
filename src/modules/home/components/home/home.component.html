@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark navbar-default navbar-static-top bg-dark">
+    <a class="navbar-brand">goToOnlineTest</a>
+
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> 
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class=" navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" >Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home/login']">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/home/signup']">SignUp</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+            </li>
+            
+        </ul>
+
+    </div>
+</nav>
+
+
+
+
+
+<footer class="footer">
+    <div class="container">
+        <span class="text-muted">© goToOnlineTest 2020</span>
+    </div>
+</footer>
+
+
+ <router-outlet></router-outlet> 

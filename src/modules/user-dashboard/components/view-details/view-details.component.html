@@ -1,0 +1,78 @@
+<sb-layout-user-dashboard>
+  <div class="row">
+    <div class="col">
+      <hr style="width:100%;margin-left:0">
+      <h3 style="text-align: center">Test Available</h3>
+      <hr style="width:100%;margin-left:0">
+
+
+      <div class="container">
+        <div class="row justify-content-around  AllTest">
+
+          <div *ngFor="let test of allTest" class="card border border-info mb-5 shadow p-3  bg-white rounded "
+            style="width:18rem ">
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{test.testName | uppercase}} {{test.testDuration}}Min</h5>
+              <p class="card-text"><small class="text-muted">{{test.lastModified | date}}</small></p>
+              <p class="card-text">{{test.testDescription}}</p>
+              <button id="takeTest" type="button" class="btn btn-primary mr-2" (click)="takeTest(test.testId)">Take
+                Test</button>
+
+              <button type="button" class="btn btn-outline-success mr-2">Result</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Test instruction Modal -->
+
+      <div>
+        <div class="modal fade  " id="testInstructionsModal" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+          <div class="modal-dialog " role="document" style="padding-top: 2rem;">
+            <div class="modal-content ">
+
+              <div class="modal-header">
+
+                <h5 class="modal-title" id="exampleModalLabel">Test Instructions...!!!</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <p>
+                  1) You will be alloted <a  class="duration"></a> Minutes to Give Test, After which window will close Automatically.<br>
+                  2) You can't go back after submitting the Answer for each Question.<br>
+                  3) You can submit the Test before the finishing Time if you want but can't after the time finishes, It
+                  will Automatically be submitted.<br>
+                  4) Please don't do cheating in test. Be fair to yourself for your true Assessment of skills.<br>
+                  5) If you aggree with all the terms stated above you may proceed by clicking Start Button Below.<br>
+                </p>
+                <h2 style="text-align: center;">Good Luck...!!!</h2>
+
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="startTest()" >Start Test</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+  </div>
+</sb-layout-user-dashboard>

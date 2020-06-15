@@ -1,0 +1,255 @@
+<script src="type/javascript">
+  $('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body input').val(recipient)
+  })
+</script>
+
+
+
+<sb-layout-dashboard>
+  <div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col" style="color:salmon">#</th>
+          <th scope="col" style="color:salmon"><span>TEST ID:</span></th>
+          <th scope="col" style="color:salmon"><span>TEST NAME</span></th>
+          <th scope="col" style="color:salmon"><span>ACTIONS</span></th>
+
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let test of allTest; let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td style="color:red">{{test.testId}}</td>
+          <td>{{test.testName | uppercase}}</td>
+          <td>
+            <button type="button" class="btn btn-outline-primary mt-1 mr-1" data-toggle="modal"
+              data-target="#viewQuestions" (click)="viewQuestions(test.testId)">View Questions</button>
+            <button type="button" class="btn btn-outline-success mt-1" data-toggle="modal" data-target="#addQuestion"
+              (click)="getTestId(test.testId)">Add Questions</button>
+
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+<!-- Add Question Modal -->
+
+
+  <div>
+    <div class="modal fade  " id="addQuestion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog modal-dialogScss" role="document">
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Add Question</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Test Id:</label>
+                <input type="text" class="form-control" [(ngModel)]="testId" name="getTestId">
+              </div>
+
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Question:</label>
+                <textarea class="form-control" id="message-text" [(ngModel)]="question" name="setQuestion"></textarea>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="optionA" name="setOptionA" placeholder="OPTION A">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="optionB" name="setOptionB" placeholder="OPTION B">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="optionC" name="setOptionC" placeholder="OPTION C">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="optionD" name="setOptionD" placeholder="OPTION D">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="answer" name="setAnswer"
+                  placeholder="ANSWER(1,2,3 OR 4)">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addQuestion()">Submit Question</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- View Questions -->
+
+
+  <div>
+    <div class="modal fade  " id="viewQuestions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog modal-dialogScss" role="document">
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Questions:</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <div *ngFor="let question of allQuestions; let i=index">
+                <input type="text" class="form-control " style="background-color:rgb(178, 237, 245);"
+                  disabled="disabled" placeholder="Some Question?" value="Q.{{i+1}}  {{question.question}}" readonly>
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <input type="text" class="form-control  " style="background-color: rgb(238, 240, 151)"
+                      placeholder="OPTION 1" disabled="disabled" value="{{question.optionA}}" readonly>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="text" class="form-control " style="background-color: rgb(238, 240, 151)"
+                      placeholder="OPTION 2" disabled="disabled" value="{{question.optionB}}" readonly>
+                  </div>
+
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6">
+                    <input type="text" class="form-control " style="background-color: rgb(238, 240, 151)"
+                      placeholder="OPTION 3" disabled="disabled" value="{{question.optionC}}" readonly>
+                  </div>
+
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" style="background-color: rgb(238, 240, 151)"
+                      placeholder="OPTION 4" disabled="disabled" value="{{question.optionD}}" readonly>
+                  </div>
+
+                </div>
+
+                <p class="form-control" id="message-text " style="height: 42px;" disabled="disabled" readonly>
+                  
+                  Answer:{{question.answer}}
+
+                  <button type="button" class="btn-sm btn-outline-danger float-right" (click)="deleteQuestion(question.questionId)">Delete</button>
+
+                  <button type="button" class="btn-sm btn-outline-success float-right  mr-1"   data-toggle="modal" data-target="#editQuestion" data-dismiss="modal">Edit</button>
+                </p>
+
+
+
+              </div>
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button"  class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Edit Question Modal -->
+
+  <div>
+    <div class="modal fade  " id="editQuestion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+
+      <div class="modal-dialog modal-dialogScss" role="document">
+        <div class="modal-content ">
+
+          <div class="modal-header">
+
+            <h5 class="modal-title" id="exampleModalLabel">Add Question</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Question Id:</label>
+                <input type="text" class="form-control"  name="getTestId">
+              </div>
+
+              <div class="form-group">
+                <label for="message-text" class="col-form-label">Question:</label>
+                <textarea class="form-control" id="message-text" [(ngModel)]="question" name="setQuestion"></textarea>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="OPTION A">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control"  placeholder="OPTION B">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control"  placeholder="OPTION C">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control"  placeholder="OPTION D">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control"  name="setAnswer"
+                  placeholder="ANSWER(1,2,3 OR 4)">
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addQuestion()">Submit Question</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</sb-layout-dashboard>
