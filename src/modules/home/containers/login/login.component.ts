@@ -7,7 +7,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
     selector: 'login',
     changeDetection: ChangeDetectionStrategy.OnPush,
     templateUrl: './login.component.html',
-    styleUrls: ['login.component.scss'],
+    styleUrls: ['login.component.css'],
 })
 export class LoginComponent implements OnInit {
     public UserName:any;
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
               Cookie.set('userId',apiResponse.data.userDetails.userId);
               Cookie.set('userName',apiResponse.data.userDetails.firstName+ ' ' +apiResponse.data.userDetails.lastName);
               Cookie.set('role',apiResponse.data.role);
+              Cookie.set('email',apiResponse.data.userDetails.email)
               alert("Login Successfull...")
 
               

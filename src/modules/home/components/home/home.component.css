@@ -10,8 +10,8 @@ html {
     text-align: center;
     bottom: 0;
     width: 100%;
-    height: 60px;
-    line-height: 60px; 
+    height: 52px;
+    line-height: 40px; 
     background-color: #f3ebeb;
   }
   
@@ -23,5 +23,30 @@ html {
     padding-right: 15px;
     padding-left: 15px;
   }
+
+  body, html {
+    height: 100%;
+}
+
+.background-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./../../../../home.jpg");
+
+ 
+  height: 84%;
+
   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.background-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
  

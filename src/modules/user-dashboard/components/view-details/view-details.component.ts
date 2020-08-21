@@ -59,5 +59,10 @@ export class ViewDetailsComponent implements OnInit {
   }
 
 
+  public result(testId){
+    this.router.navigate(['/user-dashboard/result/' +testId]);
+  }
+
+
 
 }

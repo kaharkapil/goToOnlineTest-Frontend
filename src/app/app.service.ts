@@ -26,7 +26,17 @@ export class AppService {
     let apiResponse= this.http.post(`${this.url}/api/v1/users/login`,params);
     return (apiResponse);
   }
-  
+
+  public signUpFunction(data):Observable<any>{
+    const params=new HttpParams()
+  .set('firstName',data.firstName)
+  .set('lastName',data.lastName)
+  .set('email',data.email)
+  .set('mobileNumber',data.mobileNumber)
+  .set('password',data.password)
+  return this.http.post(`${this.url}/api/v1/users/signup`,params)
+
+}
 
   public logout(): Observable<any>{
     const params =new HttpParams()

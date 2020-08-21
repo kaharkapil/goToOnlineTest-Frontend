@@ -23,6 +23,8 @@ import { ViewDetailsComponent } from './components/view-details/view-details.com
 import { StartTestComponent } from './components/start-test/start-test.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { CountdownModule } from 'ngx-countdown';
+import { ResultComponent } from './components/result/result.component';
 
 
 
@@ -38,11 +40,12 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppCommonModule,
     NavigationModule,
     NgxPaginationModule,
+    CountdownModule,
 
 
   ],
   providers:[...userDashboardServices.services,...userDashboardGuards.guards],
-  declarations: [...userDashboardContainers.containers,userDashboardComponents.components, UserDashboardCardsComponent, ViewDetailsComponent, StartTestComponent],
+  declarations: [...userDashboardContainers.containers,userDashboardComponents.components, UserDashboardCardsComponent, ViewDetailsComponent, StartTestComponent, ResultComponent],
   exports:[...userDashboardContainers.containers,...userDashboardComponents.components]
  
 })

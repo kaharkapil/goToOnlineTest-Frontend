@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit } from '@a
 import { SideNavItems, SideNavSection } from '@modules/navigation/models';
 import { NavigationService } from '@modules/navigation/services';
 import { Subscription } from 'rxjs';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Component({
     selector: 'sb-side-nav',
@@ -17,9 +18,14 @@ export class SideNavComponent implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     routeDataSubscription!: Subscription;
 
+    public userName;
+
     constructor(public navigationService: NavigationService,) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.userName=Cookie.get('userName');
+
+    }
 
     ngOnDestroy() {
         this.subscription.unsubscribe();

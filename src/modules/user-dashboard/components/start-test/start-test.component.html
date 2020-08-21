@@ -3,7 +3,7 @@
 <sb-layout-user-dashboard>
 <body>
 <div  class="preview">
-
+    <countdown #cd1 [config]="{leftTime:testDuration}" (event)="onTimerFinished($event)">$!m!:$!s!</countdown>
     <div *ngFor=" let question of allQuestions | paginate: { itemsPerPage:1, currentPage:CurrentPage*pageSize+1} ; let i=index"class="questionsBox " >
 
      <div  class="questions">{{CurrentPage+1}}.{{question.question}}</div>
@@ -29,7 +29,7 @@
                     <div class="questionsRow">
                         <button [disabled]="CurrentPage >= allQuestions.length/pageSize - 1" (click)="CurrentPage=CurrentPage+1" class="subques btn btn-lg btn-secondary" >Save & Next</button>
                         <button [disabled]="CurrentPage == 0" (click)="CurrentPage=CurrentPage-1" class="subques btn btn-lg btn-secondary" >Previous</button>
-                        <button class=" btn btn-lg btn-danger" data-toggle="modal"  data-target="#alertModal" *ngIf="allQuestions.length===CurrentPage+1" >Submit</button>
+                        <button class=" btn btn-lg btn-danger" data-toggle="modal"  data-target="#alertModal" *ngIf="allQuestions.length===CurrentPage+1" (click)="cd1.pause()" >Submit</button>
                         <span style="float: right;">{{CurrentPage+1}} of {{allQuestions.length}}</span> 
 
 
@@ -64,8 +64,8 @@
                     <h3 *ngIf="timesUp === true">Times Up!! Press Submit button to submit the test.</h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" ng-if="timesUp != true" class="btn btn-secondary" data-dismiss="modal">Return</button>
-                    <button type="button"  (click)="calculatePerformance()" class="testsubmit btn btn-primary">Submit</button>
+                    <button type="button" *ngIf="timesUp != true" class="btn btn-secondary" data-dismiss="modal" (click)="cd1.resume()">Return</button>
+                    <button type="button"  (click)="calculatePerformance(cd1.left/1000)" class="testsubmit btn btn-primary"(click)="cd1.stop()">Submit</button>
                 </div>
             </div>
         </div>

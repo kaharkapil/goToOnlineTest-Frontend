@@ -9,6 +9,7 @@ import * as testComponents from './components'
 import { TestModule } from './test.module';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnrolledUsersComponent } from './components/enrolled-users/enrolled-users.component';
 
 
 
@@ -73,6 +74,20 @@ export const ROUTES:Routes=[
   canActivate: [],
   component: testComponents.QuestionOperationComponent
 },
+{
+    path: 'enrolled-users/:testId',
+    data: {
+        title: 'goToOnlineTest',
+        breadcrumbs: [
+            {
+                text: 'Dashboard',
+                active: true,
+            },
+        ],
+    } as SBRouteData,
+    canActivate: [],
+    component: EnrolledUsersComponent,
+  },
 
 
 

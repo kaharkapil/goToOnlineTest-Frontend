@@ -1,0 +1,23 @@
+<sb-layout-dashboard>
+    <div>
+      <table class="table table-striped" style="margin-top: 1rem;">
+        <thead class="thead-dark"> 
+          <tr>
+            <th scope="col" style="color:salmon"><span>S.No.:</span></th>
+            <th scope="col" style="color:salmon"><span>User Email</span></th>
+            <th scope="col" style="color:salmon"><span>Score</span></th>
+  
+          </tr>
+        </thead>
+         <tbody>
+  
+          <tr  class="table-secondary" *ngFor="let user of attemptedBy; let i=index">
+            <th scope="row">{{i+1}}</th>
+            <td style="color:red">{{user.email}}</td>
+            <td>{{user.score}}</td>
+            
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+</sb-layout-dashboard>

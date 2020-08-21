@@ -11,8 +11,14 @@ import { Users } from '@modules/tables/models/users';
     styleUrls: ['top-nav-user.component.scss'],
 })
 export class TopNavUserComponent implements OnInit {
+
+  public userName;
+  public userEmail;
     constructor(private appservice:AppService,private router:Router) {}
-    ngOnInit() {}
+    ngOnInit() {
+      this.userName=Cookie.get('userName');
+      this.userEmail=Cookie.get('email');
+    }
 
 
     public logout=()=>{

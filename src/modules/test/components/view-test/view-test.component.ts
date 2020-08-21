@@ -49,6 +49,11 @@ export class ViewTestComponent implements OnInit {
 
   } // end delete test function;
 
+  public getEnrolledUsers=(testId)=>{
+    console.log(testId);
+    this.router.navigate(['/dashboard/test/enrolled-users/'+testId]);
+  }
+
 }
 
 

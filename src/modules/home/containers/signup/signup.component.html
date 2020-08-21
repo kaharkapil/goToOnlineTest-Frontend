@@ -1,42 +1,51 @@
-<div class="container">
+<div class="background-image">
+    
+<div class="container" >
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                <div class="card shadow-lg border-1 rounded-lg " >
+                    <div class="card-header py-1"><h2 class="text-center font-weight-light ">Create Account</h2></div>
                     <div class="card-body">
-                        <form>
+                        <form >
                             <div class="form-row">
                                 <div class="col-md-6">
-                                    <div class="form-group"><label class="small mb-1" for="inputFirstName">First Name</label><input class="form-control py-4" id="inputFirstName" type="text" placeholder="Enter first name" /></div>
+                                    <div class="form-group"><label class="small mb-1 mt-0" for="inputFirstName">First Name</label>
+                                        <input class="form-control py-3" [(ngModel)]="firstName" name="inputFirstName" id="inputFirstName" type="text" placeholder="Enter first name" />
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group"><label class="small mb-1" for="inputLastName">Last Name</label><input class="form-control py-4" id="inputLastName" type="text" placeholder="Enter last name" /></div>
+                                    <div class="form-group mt-0"><label class="small mb-1 " for="inputLastName">Last Name</label>
+                                        <input class="form-control py-3"[(ngModel)]="lastName" name="inputLastName" id="inputLastName" type="text" placeholder="Enter last name" /></div>
                                 </div>
                             </div>
-                            <div class="form-group"><label class="small mb-1" for="inputEmailAddress">Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
+                            <div class="form-group">
+                                <label class="small mb-1" for="inputEmailAddress">Email</label>
+                                <input class="form-control py-3"[(ngModel)]="email" name="inputEmail" id="inputEmailAddress" type="email" aria-describedby="emailHelp" placeholder="Enter email address" /></div>
                             <div class="form-row">
                                
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputMobileNumber">Mobile Number</label>
-                                        <input class="form-control py-4" id="inputMobileNumber" type="text" placeholder="Mobile Number" />
+                                        <input class="form-control py-3"[(ngModel)]="mobileNumber" name="inputMobile" id="inputMobileNumber" type="text" placeholder="Mobile Number" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-1" for="inputPassword">Password</label>
-                                        <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                        <input class="form-control py-3"[(ngModel)]="password" name="inputPassword" id="inputPassword" type="password" placeholder="Enter password" />
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group mt-4 mb-0"><a class="btn btn-primary btn-block">Create Account</a></div>
+                            <div class="form-group mt-0 mb-0"><a class="btn btn-primary btn-block" (click)="signUpFunction()">Create Account</a></div>
                         </form>
                     </div>
-                    <div class="card-footer text-center">
+                    <div class="card-footer text-center py-1 mt-0">
                         <div class="small"><a routerLink="/home/login">Have an account? Go to login</a></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 

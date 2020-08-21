@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
     declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        CountdownModule,
 
     ],
     providers: [],

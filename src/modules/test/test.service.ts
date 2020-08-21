@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,12 @@ export class TestService {
 
   private url='http://localhost:3000';
 
+  public email;
+
+  
+
   constructor(public http:HttpClient) { 
+    
   }
 
   public addQuestionFunction(data): Observable<any>{
@@ -57,4 +63,15 @@ export class TestService {
     return this.http.post(this.url+'/api/v1/test/addPerformance',params)
                                          
   }
+
+  public getPerformance=(testId):any=>{
+    this.email=Cookie.get('email');
+   console.log(this.email)
+   console.log(this.url+'/api/v1/test/result/'+this.email+'/'+testId);
+   console.log(this.http.get(this.url+'/api/v1/test/result/'+this.email+'/'+testId))
+   
+    return this.http.get(this.url+'/api/v1/test/result/'+this.email+'/'+testId);
+
+  }
+
 }

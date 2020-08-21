@@ -1,0 +1,154 @@
+<sb-layout-user-dashboard>
+    <div class="row">
+        <div class="col">
+            <div class="card panels-card shadow p-3" style="margin-top: 1rem; border-color:rgb(29, 212, 12);border-width: 0.1rem;border-radius: 2rem">
+                <nav>
+                    <h1 style="text-align: center;">Result</h1>
+                    <p style="margin-top: 0.5rem; text-align: center; font-size: 2rem;">Your Score:{{marks}}/{{totalQuestions*2}}</p>
+                    <div class="progress" style="height: 40px; width: 65%; margin-left: auto; margin-right:auto;">
+                        <div class="progress-bar " role="progressbar"   aria-valuemin="0" aria-valuemax="100">{{percentage}}%</div>
+                    </div>
+                </nav>
+
+                <div class="card-body  rounded-bottom">
+                    <!-- ------------------------------------------------------------------------------------------- -->
+                    <div class="row">
+
+                        <div class="col-6 p-1">
+
+                            <div class="card shadow p-3" style="border-color:darkcyan; border-radius: 1rem;border-width: 0.2rem;">
+
+                                <div class="card-body pb-0 ">
+                                    <p class="mb-0 h3" style="color: darkturquoise;">{{totalQuestions}}</p>
+                                </div>
+
+                                <hr>
+
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Total Questions</h6>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6 p-1">
+
+                            <div class="card shadow p-3" style="border-color:orangered;border-radius: 1rem;border-width: 0.2rem;">
+
+                                <div class="card-body pb-0 ">
+                                    <p class="mb-0 h3" style="color: darkturquoise;">{{correct}}</p>
+                                </div>
+
+                                <hr>
+
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Correct</h6>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- --------------------------------------------------------------------------------------------------------------- -->
+
+                    <div class="row">
+
+
+                        <div class="col-6 p-1">
+
+                            <div class="card  shadow p-3" style="border-color:orangered;border-radius: 1rem;border-width: 0.2rem;">
+
+                                <div class="card-body pb-0">
+
+
+                                    <p class="mb-0 h3" style="color: darkturquoise;">{{marks}}/{{totalQuestions*2}}</p>
+
+
+                                </div>
+                                <hr>
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Marks</h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-6 p-1">
+
+                            <div class="card shadow p-3" style="border-color:darkcyan;border-radius: 1rem;border-width: 0.2rem;">
+                                <div class="card-body pb-0">
+
+
+                                    <p class="mb-0 h3" style="color: darkturquoise;">{{inCorrect}}</p>
+
+                                </div>
+                                <hr>
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Incorrect</h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- -------------------------------------------------------------------------------------- -->
+
+                    <div class="row">
+
+
+                        <div class="col-6 p-1">
+
+                            <div class="card shadow p-3" style="border-color:darkcyan;border-radius: 1rem;border-width: 0.2rem;">
+
+                                <div class="card-body pb-0">
+
+                                    <p class="mb-0 h5" style="color: darkturquoise;">{{timeTakenHr}}:{{timeTakenMin}}:{{timeTakenSec}}</p>
+
+
+                                </div>
+                                <hr>
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Time Taken</h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="col-6 p-1">
+
+                            <div class="card shadow p-3" style="border-color:orangered;border-radius: 1rem;border-width: 0.2rem;">
+
+                                <div class="card-body pb-0">
+
+                                    <p class="mb-0 h3" style="color: darkturquoise;">{{unanswered}}</p>
+
+                                </div>
+
+                                <hr>
+
+
+                                <div class="card-body pt-0">
+                                    <h6 class="font-weight-bold mb-1">Skipped</h6>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- ----------------------------------------------------------------------------------------------------------------- -->
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</sb-layout-user-dashboard>

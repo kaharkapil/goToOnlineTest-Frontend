@@ -15,6 +15,7 @@ import * as userDashboardContainers from './containers';
 import * as userDashboardGuards from './guards';
 import { SBRouteData } from '@modules/navigation/models';
 import { ViewDetailsComponent, StartTestComponent } from './components';
+import { ResultComponent } from './components/result/result.component';
 
 
 /* Routes */
@@ -61,7 +62,20 @@ export const ROUTES: Routes = [
         canActivate:[],
         component: StartTestComponent,
     },
-
+    {
+        path: 'result/:testId',
+        data: {
+            title: 'goToOnlineTest',
+            breadcrumbs: [
+                {
+                    text: 'Dashboard',
+                    active: true,
+                },
+            ],
+        } as SBRouteData,
+        canActivate:[],
+        component: ResultComponent,
+    },
 
     ]
 @NgModule({
