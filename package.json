@@ -39,7 +39,7 @@
         "@ng-bootstrap/ng-bootstrap": "6.0.2",
         "@prettier/plugin-pug": "1.2.0",
         "@types/jquery": "^3.3.38",
-        "chart.js": "2.9.3",
+        "chart.js": "2.9.4",
         "jquery": "^3.5.1",
         "ng2-cookies": "^1.0.12",
         "ngx-countdown": "^9.0.1",
